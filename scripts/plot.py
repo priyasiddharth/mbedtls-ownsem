@@ -6,6 +6,7 @@ import json
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import pdb 
 
 def load_dict_with_tuple_keys(filename):
     with open(filename, 'r') as f:
@@ -22,10 +23,13 @@ def extract_data_pair(data, subkey, parameter):
     x = 0
     y = 0
     for key in filtered.keys():
+      try: 
         if 'ownsem' in key:
-            x = filtered[key][parameter]
+          x = filtered[key][parameter]
         else:
-            y = filtered[key][parameter]  
+          y = filtered[key][parameter]  
+      except KeyError:
+        pdb.set_trace()    
     return (x, y)
 
 def extract_datalist(data, parameter):
@@ -70,13 +74,14 @@ def doPlot(data, parameter, job_names, out_filename):
   # Add grid
   plt.grid(True)
   # Add labels
-  plt.xlabel('Ownsem(s)')
-  plt.ylabel('Baseline(s)')
+  plt.xlabel('Ownsem')
+  plt.ylabel('Baseline')
 
   # Show legend
   plt.legend()
   plt.savefig(out_filename, format='pdf')
-  plt.show()
+  print(f'Wrote file {out_filename}')
+  #plt.show()
 
 def main():
     # Setup command line argument parsing
