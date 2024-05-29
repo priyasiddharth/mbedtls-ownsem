@@ -1,15 +1,24 @@
-![os](https://img.shields.io/badge/os-linux-orange?logo=linux)
-[![CI](https://github.com/priyasiddharth/verify-mbedtls/actions/workflows/main.yml/badge.svg)](https://github.com/priyasiddharth/verify-mbedtls/actions?query=workflow%3ACI)
+# embedTLS with Ownership
 
-This project aims to verify the mbedtls library using the Seahorn BMC engine
-and the SeaMock mocking framework.
 
-## HOWTO build and test the project
-Replicate instructions in `docker/verify-mbedtls.dockerfile`
- 
-## HOWTO add a verification job
+## Create dataset
 
-``` sh
-scripts/add-job <component> <job> <SUT>
+1. Build the verification jobs
+```
+docker build -t verify-mbedtls . --file docker/verify-mbedtls.Dockerfile
 ```
 
+2. Run benchmark and collect results
+```
+docker run  -e SEAHORN_ROOT_REL=/home/usea/seahorn  -it verify-mbedtls
+```
+
+The results will be in four files
+
+```
+'results_flight_append.json'
+'results_write_records.json'
+'results_write_handshake_shad.json'
+'results_write_handshake_main.json'
+'result_many_buffers.json'
+```

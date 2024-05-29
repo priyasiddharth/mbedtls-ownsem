@@ -1,4 +1,4 @@
-FROM seahorn/seahorn-llvm14:nightly
+FROM priyasiddharth/seahorn-llvm14:ownsem
 
 ENV SEAHORN=/home/usea/seahorn/bin/sea PATH="$PATH:/home/usea/seahorn/bin"
 

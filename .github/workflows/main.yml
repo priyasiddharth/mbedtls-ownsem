@@ -44,7 +44,7 @@ jobs:
         id: exclude_files
         run: (test -f ".github/workflows/blacklist.${{steps.type.outputs.type}}.txt" && echo ::set-output name=exclude_files::"($(cut -f 1 ".github/workflows/blacklist.${{steps.type.outputs.type}}.txt" | head -c -1 | tr '\n' '|'))" ) || (echo ::set-output name=exclude_files::" ")
 
-      - name: Docker (Build and run tests)
+      - name: Docker Build
         run: docker build -t verify-mbedtls . --file docker/verify-mbedtls.Dockerfile
 
       - name: Get number of Cores
