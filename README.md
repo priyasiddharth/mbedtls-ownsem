@@ -1,7 +1,13 @@
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)][data]
+
+[data]: https://colab.research.google.com/github/priyasiddharth/blob/mbedtls-ownsem/main/mbedtls_ownsem.ipynb
+
 # embedTLS with Ownership
 
+## Analysis
+Detailed analysis of dataset is available in an accompanying [Jupyter Notebook][data] in Google Colab.
 
-## Create dataset
+## HOWTO recreate dataset
 
 1. Build the verification jobs
 ```
@@ -13,8 +19,12 @@ docker build -t verify-mbedtls . --file docker/verify-mbedtls.Dockerfile
 docker run  -e SEAHORN_ROOT_REL=/home/usea/seahorn  -it verify-mbedtls
 ```
 
-The results will be in four files
+In the docker container you will be in `/home/usea/verify-mbedtls`. From here, run the benchmark script.
+```
+bash scripts/run_benchmarks.sh
+```
 
+The results will be in five files. Copy these files to host for analysis.
 ```
 'results_flight_append.json'
 'results_write_records.json'
