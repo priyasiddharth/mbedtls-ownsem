@@ -1,6 +1,6 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)][data]
 
-[data]: https://colab.research.google.com/github/priyasiddharth/blob/mbedtls-ownsem/main/mbedtls_ownsem.ipynb
+[data]: https://colab.research.google.com/github/priyasiddharth/mbedtls-ownsem/blob/main/mbedtls_ownsem.ipynb
 
 # embedTLS with Ownership
 
