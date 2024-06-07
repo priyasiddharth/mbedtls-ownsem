@@ -32,3 +32,7 @@ The results will be in five files. Copy these files to host for analysis.
 'results_write_handshake_main.json'
 'result_many_buffers.json'
 ```
+
+## SEABMC sources
+
+The modified SEABMC sources can be found in [this](https://github.com/priyasiddharth/seahorn/tree/ownsem) repo.
