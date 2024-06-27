@@ -1,0 +1,2 @@
+add_subdirectory(many_buffers)
+add_subdirectory(many_buffers_ownsem)
