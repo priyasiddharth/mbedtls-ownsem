@@ -63,5 +63,7 @@ endif()
 configure_file(verify.py.in verify @ONLY)
 set(VERIFY_CMD ${CMAKE_CURRENT_BINARY_DIR}/verify)
 include_directories(BEFORE ${CMAKE_CURRENT_BINARY_DIR}/seahorn/include/
-                           ${SEAHORN_ROOT}/include)             
+                           ${SEAHORN_ROOT}/include
+                           ${MBEDTLS_DIR}/include/mbedtls
+                           ${MBEDTLS_DIR}/tf-psa-crypto/include/)             
 add_subdirectory(seahorn)
